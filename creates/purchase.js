@@ -5,7 +5,7 @@ const createPurchase = (z, bundle) => {
   const now = Math.floor((new Date).getTime()/1000)
 
   let data = {
-    first_name: bundle.inputData.first_name || bundle.inputData.email || 'Firstname',
+    first_name: bundle.inputData.first_name || bundle.inputData.email,
     email: bundle.inputData.email,
     order_timestamp: bundle.inputData.order_timestamp || now,
     browser_ip: bundle.inputData.browser_ip || '',
@@ -19,8 +19,7 @@ const createPurchase = (z, bundle) => {
   return z
     .request({
       url: `https://my.referralcandy.com/api/v1/purchase.json?${params}`,
-      method: "POST",
-      headers: { "content-type": "application/json" }
+      method: "POST"
     })
     .then(response => {
       return response.json;
@@ -38,11 +37,11 @@ module.exports = {
     inputFields: [
       { key: "email", required: true, type: "string" },
       { key: "first_name", required: false, type: "string" },
-      { key: "order_timestamp", required: false, type: "integer" },
+      { key: "order_timestamp", required: false, type: "datetime" },
       { key: "browser_ip", required: false, type: "string" },
       { key: "user_agent", required: false, type: "string" },
-      { key: "invoice_amount", required: false, type: "integer" },
-      { key: "currency_code", required: false, type: "string" },
+      { key: "invoice_amount", required: false, type: "number" },
+      { key: "currency_code", required: false, type: "text" },
     ],
     perform: createPurchase,
     sample: {
