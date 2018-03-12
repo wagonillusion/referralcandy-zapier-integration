@@ -1,0 +1,26 @@
+{
+  "name": "referralcandy-zapier-integration",
+  "version": "1.0.0",
+  "description": "An example app for integrating ReferralCandy with the Zapier platform.",
+  "repository": "wagonillusion/referralcandy-zapier-integration",
+  "homepage": "https://github.com/wagonillusion/referralcandy-zapier-integration",
+  "author": "WagonIllusion <37288895+wagonillusion@users.noreply.github.com>",
+  "license": "BSD-3-Clause",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha --recursive"
+  },
+  "engines": {
+    "node": "6.10.3",
+    "npm": ">=3.10.10"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "query-string": "^5.1.0",
+    "zapier-platform-core": "5.0.0"
+  },
+  "devDependencies": {
+    "mocha": "3.2.0",
+    "should": "11.2.1"
+  }
+}
