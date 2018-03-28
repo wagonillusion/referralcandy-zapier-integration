@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "crypto-js": "^3.1.9-1",
+    "moment": "^2.21.0",
     "query-string": "^5.1.0",
     "zapier-platform-core": "5.0.0"
   },

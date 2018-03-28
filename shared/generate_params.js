@@ -1,6 +1,7 @@
 const MD5 = require("crypto-js/md5");
 const queryString = require('query-string');
 const PURCHASE = require('./param_sets').purchase;
+const moment = require('moment');
 
 const calculateRCSignature = (data, secretKey) => {
   const sortedKeys = Object.keys(data).sort((a, b) => {
@@ -21,11 +22,11 @@ const calculateRCSignature = (data, secretKey) => {
 module.exports = (z, bundle, userData = {}) => {
   const accessID = process.env.ACCESS_ID || bundle.authData.access_id
   const secretKey = process.env.SECRET_KEY || bundle.authData.secret_key
-  const now = Math.floor((new Date).getTime()/1000)
+  const epochNow = moment().unix()
 
   const defaultData = {
     accessID: accessID,
-    timestamp: now
+    timestamp: epochNow
   }
 
   let completeData = Object.assign(defaultData, userData)
